@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <!--ng-controller="SchemaCtrl as vm">-->
+  <div class="panel-heading"
+       style="font-size: large">
+    Schema Changes
+  </div>
+
+  <div class="panel-body">
+    <div style="text-align: center; width: 100%; margin: 0 auto 10px;" ng-show="vm.loading">
+      <img src="../img/loader.gif"/>
+      <br/>
+      <span style="color: #3892CF; font-weight: bold;">Comparing Production and DW schemas...</span>
+    </div>
+
+    <!--<div ng-bind-html="vm.script"></div>-->
+    <textarea elastic ng-model="vm.script" class="form-control" ng-disabled="vm.scriptEditDisabled" style="height: 1000px;"></textarea> <br/>
+    <!--<textarea elastic ng-model="$parent.vm.script" class="form-control" style="height: 1000px;"></textarea> <br/>-->
+    <table style="width: 100%;">
+      <tr>
+        <td><button id="btnUpdate" ng-type="button" class="btn btn-danger" confirmed-click="vm.save()" ng-confirm-click>Execute Script</button></td>
+        <td><button id="btnEdit" ng-type="button" class="btn btn-primary" ng-click="vm.toggleEdit()" ng-disabled="!vm.script">{{vm.editName}}</button></td>
+      </tr>
+    </table>
+
+  </div>
+
+
+</div>
+<div ng-class="vm.result" ng-show="vm.showResultAlert">
+  <button type="button" class="close" data-ng-click="vm.switchBool('showResultAlert')">&#10006;</button> <strong>{{vm.resultStatus}}</strong> {{vm.resultTextAlert}}
+</div>
