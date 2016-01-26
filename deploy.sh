@@ -100,24 +100,25 @@ selectNodeVersion () {
 
 echo Handling node.js grunt deployment.
 
-echo Select node version
+# 1. Select node version
 selectNodeVersion
 
-echo 1. Install npm packages
+# 2. Install npm packages
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   eval $NPM_CMD install
   exitWithMessageOnError "npm failed"
 fi
 
-echo 2. Install bower packages
-if [ -e "$DEPLOYMENT_SOURCE/bower.json" ]; then
+# 3. Install bower packages
+if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install bower
   exitWithMessageOnError "installing bower failed"
   ./node_modules/.bin/bower install
   exitWithMessageOnError "bower failed"
 fi
 
-echo 3. Run grunt
+# 4. Run grunt
 if [ -e "$DEPLOYMENT_SOURCE/Gruntfile.js" ]; then
   eval $NPM_CMD install grunt-cli
   exitWithMessageOnError "installing grunt failed"
@@ -125,7 +126,7 @@ if [ -e "$DEPLOYMENT_SOURCE/Gruntfile.js" ]; then
   exitWithMessageOnError "grunt failed"
 fi
 
-echo 4. KuduSync to Target
+# 5. KuduSync to Target
 "$KUDU_SYNC_CMD" -v 500 -f "$DEPLOYMENT_SOURCE/dist" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
 exitWithMessageOnError "Kudu Sync to Target failed"
 
