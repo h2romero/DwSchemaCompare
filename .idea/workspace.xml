@@ -44,8 +44,8 @@
       <file leaf-file-name="deploy.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42060086">
-              <caret line="122" column="2" selection-start-line="122" selection-start-column="2" selection-end-line="122" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.39914164">
+              <caret line="121" column="49" selection-start-line="121" selection-start-column="49" selection-end-line="121" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -722,8 +722,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42060086">
-          <caret line="122" column="2" selection-start-line="122" selection-start-column="2" selection-end-line="122" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.39914164">
+          <caret line="121" column="49" selection-start-line="121" selection-start-column="49" selection-end-line="121" selection-end-column="49" />
           <folding />
         </state>
       </provider>
