@@ -39,8 +39,8 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/schema">Schema</a></li>
+              <li ng-class="{ active: isActive('/home')}"><a href="#/">Home</a></li>
+              <li ng-class="{ active: isActive('/schema')}"><a ng-href="#/schema">Schema</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
